@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>수리나무학원 스마트 학습 - Chapter 05 (대명사)</title>
+    <title>수리나무학원 스마트 학습 - Basic Grammar (be동사와 전치사)</title>
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
@@ -74,7 +74,7 @@
         .audio-ctrl-btn { width: 100%; padding: 12px; border-radius: 10px; font-weight: bold; font-size: 16px; border: none; cursor: pointer; color: white; transition: 0.3s; margin-top: 10px;}
         .drag-tip { background: #FFFBEB; border: 1px solid #F6E05E; color: #B7791F; font-size: 13px; font-weight: bold; padding: 10px; border-radius: 8px; margin-bottom: 15px; line-height: 1.4;}
 
-        /* 문법 퀴즈(선택형) 스타일 */
+        /* 문법 퀴즈(전치사) 스타일 */
         .grammar-question-box { font-size: 22px; font-weight: 800; color: #2D3748; background: #EBF8FF; padding: 25px 15px; border-radius: 15px; margin-bottom: 20px; border: 2px solid #90CDF4; word-break: keep-all; line-height: 1.5; }
         .grammar-blank { display: inline-block; min-width: 60px; padding: 0 10px; border-bottom: 3px solid #3182CE; color: #3182CE; font-weight: 900; text-align: center; transition: 0.3s; }
         .grammar-blank.correct { color: #38A169; border-color: #38A169; }
@@ -112,7 +112,7 @@
     <div class="app-header">
         <div class="logo-icon">🌳</div>
         <h1>수리나무학원</h1>
-        <p>Chapter 05 (대명사)</p>
+        <p>Basic Grammar (be동사 & 전치사)</p>
     </div>
     
     <div class="nav-container">
@@ -170,7 +170,7 @@
             <button onclick="jumpToSentence()">GO 🚀</button>
         </div>
         <h3 style="color: var(--main-green); margin-bottom: 5px;">듣고 뜻을 보며 단어를 터치하세요</h3>
-        <div class="status-text" id="sentence-status">문제 1 / 18</div>
+        <div class="status-text" id="sentence-status">문제 1 / 17</div>
         <div id="sentence-ko-text" class="korean-meaning">한글 뜻 로딩중...</div>
         
         <div class="drag-tip">💡 꿀팁: 단어를 잘못 넣었을 땐 <b>꾹 눌러서 스르륵 끌어다 놓기(드래그)</b>로 순서를 바꿀 수 있어요!</div>
@@ -188,7 +188,7 @@
         <div id="intro-screen-gram">
             <div style="font-size: 4rem; margin-bottom: 10px;">🥚</div>
             <h2 style="color: var(--main-green);">문법 마스터 용 키우기!</h2>
-            <p style="font-weight: bold; color: #4A5568;">상황에 알맞은 <b>대명사</b>를 선택하여<br>알을 진화시켜 보세요.</p>
+            <p style="font-weight: bold; color: #4A5568;">상황에 알맞은 <b>장소/시간 전치사</b>를 선택하여<br>알을 진화시켜 보세요.</p>
             <button class="start-btn" onclick="initAudioContext(); startGrammarTest();">문법 퀴즈 시작하기 🚀</button>
         </div>
 
@@ -202,7 +202,7 @@
                 </div>
             </div>
 
-            <div class="status-text" id="gram-status">문제 1 / 18</div>
+            <div class="status-text" id="gram-status">문제 1 / 12</div>
             <div class="korean-meaning" id="gram-ko-text" style="font-size: 16px; margin-top: 0;">한글 뜻</div>
             
             <div class="grammar-question-box" id="gram-question">
@@ -296,61 +296,54 @@
     }
 
     // ==========================================
-    // Data Definitions (Chapter 05 - 대명사)
+    // Data Definitions (Basic Grammar - 121.pdf)
     // ==========================================
     const wordList = [
-        { en: "comic book", ko: "만화책" }, { en: "across", ko: "건너편에" }, { en: "street", ko: "거리, 길" },
-        { en: "uncle", ko: "삼촌" }, { en: "school bag", ko: "책가방" }, { en: "inside", ko: "안에" },
-        { en: "classroom", ko: "교실" }, { en: "elevator", ko: "엘리베이터" }, { en: "emergency", ko: "비상사태" },
-        { en: "far", ko: "먼, 멀리" }, { en: "meter", ko: "미터" }, { en: "pants", ko: "바지" },
-        { en: "better", ko: "더 나은, 더 마음에 드는" }, { en: "road", ko: "도로" }, { en: "kind", ko: "종류" },
-        { en: "restaurant", ko: "식당" }, { en: "sell", ko: "팔다" }, { en: "medicine", ko: "약" },
-        { en: "enjoy oneself", ko: "즐거운 시간을 보내다" }, { en: "party", ko: "파티" }, { en: "sweater", ko: "스웨터" },
-        { en: "stripe", ko: "줄무늬" }, { en: "piece", ko: "조각" }, { en: "cut", ko: "자르다" },
-        { en: "skirt", ko: "치마" }, { en: "yesterday", ko: "어제" }, { en: "look good", ko: "좋아 보이다" },
-        { en: "some", ko: "약간의 (긍정문/권유)" }, { en: "any", ko: "어떤 (부정문/의문문)" }, { en: "himself", ko: "그 자신 (재귀대명사)" }
+        { en: "pencil", ko: "연필" }, { en: "cook", ko: "요리사" }, { en: "monkey", ko: "원숭이" },
+        { en: "ballerina", ko: "발레리나" }, { en: "swimmer", ko: "수영선수" }, { en: "singer", ko: "가수" },
+        { en: "happy", ko: "행복한" }, { en: "dentist", ko: "치과의사" }, { en: "busy", ko: "바쁜" },
+        { en: "today", ko: "오늘" }, { en: "home", ko: "집" }, { en: "library", ko: "도서관" },
+        { en: "boy", ko: "소년" }, { en: "English teacher", ko: "영어 선생님" }, { en: "nurse", ko: "간호사" },
+        { en: "soccer ball", ko: "축구공" }, { en: "theater", ko: "극장" }, { en: "homeroom teacher", ko: "담임 선생님" },
+        { en: "late", ko: "늦은" }, { en: "meeting", ko: "회의" }, { en: "angry", ko: "화난" },
+        { en: "Korea", ko: "한국" }, { en: "actor", ko: "배우" }, { en: "baseball player", ko: "야구선수" },
+        { en: "farmer", ko: "농부" }, { en: "tiger", ko: "호랑이" }, { en: "great", ko: "훌륭한" },
+        { en: "pianist", ko: "피아니스트" }, { en: "funny", ko: "재미있는" }, { en: "park", ko: "공원" }
     ];
 
     const sentenceList = [
-        { en: "Are these your comic books?", ko: "이것들은 너의 만화책들이니?" },
-        { en: "It is 7 o'clock.", ko: "7시 정각이다." },
-        { en: "Those are man's socks.", ko: "저것들은 남자의 양말들이다." },
-        { en: "That man across the street is my uncle.", ko: "길 건너편의 저 남자는 나의 삼촌이다." },
-        { en: "That school bag is my sister's.", ko: "저 책가방은 내 여동생의 것이다." },
-        { en: "It is very hot inside the classroom.", ko: "교실 안은 매우 덥다." },
-        { en: "These elevators are only for emergencies.", ko: "이 엘리베이터들은 비상용으로만 쓰인다." },
-        { en: "How long does it take to get there?", ko: "거기에 도착하는 데 얼마나 걸리니?" },
-        { en: "It is only 100 meters from here.", ko: "여기서 겨우 100미터야." },
-        { en: "Which pants do you like better, these or those?", ko: "이것들과 저것들 중 어느 바지가 더 마음에 드니?" },
-        { en: "Look at those cars on the road.", ko: "도로 위의 저 차들을 봐." },
-        { en: "What kind of food does that restaurant sell?", ko: "저 식당은 어떤 종류의 음식을 파니?" },
-        { en: "I don't have any time now.", ko: "나는 지금 시간이 없어." },
-        { en: "I need some medicine.", ko: "나는 약이 좀 필요해." },
-        { en: "Chris enjoyed himself at the party.", ko: "크리스는 파티에서 즐거운 시간을 보냈다." },
-        { en: "My car is old. I need a new one.", ko: "내 차는 낡았다. 나는 새 것이 필요하다." },
-        { en: "I like the one with blue stripes.", ko: "나는 파란 줄무늬가 있는 것이 마음에 들어." },
-        { en: "Can we have bigger ones?", ko: "우리가 더 큰 것들을 가질 수 있을까?" }
+        { en: "It is a pencil.", ko: "그것은 연필이다." },
+        { en: "They are monkeys.", ko: "그들은 원숭이들이다." },
+        { en: "I am happy.", ko: "나는 행복하다." },
+        { en: "We are dentists.", ko: "우리는 치과의사들이다." },
+        { en: "She is busy today.", ko: "그녀는 오늘 바쁘다." },
+        { en: "David and I are in the library.", ko: "데이비드와 나는 도서관에 있다." },
+        { en: "I am an English teacher.", ko: "나는 영어 선생님이다." },
+        { en: "She is not my homeroom teacher.", ko: "그녀는 나의 담임 선생님이 아니다." },
+        { en: "Are we late for the meeting?", ko: "우리가 회의에 늦었나요?" },
+        { en: "They are not from Korea.", ko: "그들은 한국 출신이 아니다." },
+        { en: "You are not baseball players.", ko: "너희들은 야구선수가 아니다." },
+        { en: "He is a great pianist.", ko: "그는 훌륭한 피아니스트이다." },
+        { en: "Is it Sam's book?", ko: "그것은 샘의 책이니?" },
+        { en: "This movie is very funny.", ko: "이 영화는 매우 재미있다." },
+        { en: "Billy wasn't at home.", ko: "빌리는 집에 없었다." },
+        { en: "He was in the park.", ko: "그는 공원에 있었다." },
+        { en: "The cats were on the sofa.", ko: "고양이들은 소파 위에 있었다." }
     ];
 
     const grammarList = [
-        { ko: "이것들은 너의 만화책들이니?", enPre: "Are ", options: ["this", "these"], enPost: " your comic books?", correct: "these" },
-        { ko: "7시 정각이다.", enPre: "", options: ["This", "It"], enPost: " is 7 o'clock.", correct: "It" },
-        { ko: "저것들은 남자의 양말들이다.", enPre: "", options: ["That", "Those"], enPost: " are man's socks.", correct: "Those" },
-        { ko: "길 건너편의 저 남자는 나의 삼촌이다.", enPre: "", options: ["This", "That"], enPost: " man across the street is my uncle.", correct: "That" },
-        { ko: "저 책가방은 내 여동생의 것이다.", enPre: "", options: ["Those", "That"], enPost: " school bag is my sister's.", correct: "That" },
-        { ko: "교실 안은 매우 덥다.", enPre: "", options: ["This", "It"], enPost: " is very hot inside the classroom.", correct: "It" },
-        { ko: "이 엘리베이터들은 비상용으로만 쓰인다.", enPre: "", options: ["This", "These"], enPost: " elevators are only for emergencies.", correct: "These" },
-        { ko: "거기에 도착하는 데 얼마나 걸리니?", enPre: "How long does ", options: ["that", "it"], enPost: " take to get there?", correct: "it" },
-        { ko: "이것들과 저것들 중 어느 바지가 더 마음에 드니?", enPre: "Which pants do you like better, ", options: ["this", "these"], enPost: " or those?", correct: "these" },
-        { ko: "도로 위의 저 차들을 봐.", enPre: "Look at ", options: ["that", "those"], enPost: " cars on the road.", correct: "those" },
-        { ko: "저 식당은 어떤 종류의 음식을 파니?", enPre: "What kind of food does ", options: ["this", "that"], enPost: " restaurant sell?", correct: "that" },
-        { ko: "나는 지금 시간이 없어.", enPre: "I don't have ", options: ["some", "any"], enPost: " time now.", correct: "any" },
-        { ko: "나는 약이 좀 필요해.", enPre: "I need ", options: ["some", "any"], enPost: " medicine.", correct: "some" },
-        { ko: "크리스는 파티에서 즐거운 시간을 보냈다.", enPre: "Chris enjoyed ", options: ["him", "himself"], enPost: " at the party.", correct: "himself" },
-        { ko: "내 차는 낡았다. 나는 새 것이 필요하다.", enPre: "My car is old. I need a new ", options: ["one", "ones"], enPost: ".", correct: "one" },
-        { ko: "나는 파란 줄무늬가 있는 것이 마음에 들어.", enPre: "I like the ", options: ["one", "ones"], enPost: " with blue stripes.", correct: "one" },
-        { ko: "우리가 더 큰 것들을 가질 수 있을까?", enPre: "Can we have bigger ", options: ["one", "ones"], enPost: "?", correct: "ones" },
-        { ko: "나는 어제 이 치마를 샀어. 그것은 좋아 보여.", enPre: "I bought this skirt yesterday. ", options: ["This", "It"], enPost: " looks good.", correct: "It" }
+        { ko: "데이비드와 나는 도서관에 있다.", enPre: "David and I are ", options: ["in", "on", "at"], enPost: " the library.", correct: "in" },
+        { ko: "그들은 지금 집에 있다.", enPre: "They are ", options: ["in", "on", "at"], enPost: " home now.", correct: "at" },
+        { ko: "우리는 극장 안에 있다.", enPre: "We are ", options: ["in", "on", "at"], enPost: " the theater.", correct: "in" },
+        { ko: "빌리는 집에 없었다.", enPre: "Billy wasn't ", options: ["in", "on", "at"], enPost: " home.", correct: "at" },
+        { ko: "그는 공원에 있었다.", enPre: "He was ", options: ["in", "on", "at"], enPost: " the park.", correct: "in" },
+        { ko: "고양이들은 소파 위에 있었다.", enPre: "The cats were ", options: ["in", "on", "under"], enPost: " the sofa.", correct: "on" },
+        { ko: "그들은 바구니 안에 있었다.", enPre: "They were ", options: ["in", "on", "at"], enPost: " the basket.", correct: "in" },
+        { ko: "우리가 회의에 늦었나요?", enPre: "Are we late ", options: ["to", "for", "at"], enPost: " the meeting?", correct: "for" },
+        { ko: "그들은 한국 출신이 아니다.", enPre: "They are not ", options: ["to", "from", "in"], enPost: " Korea.", correct: "from" },
+        { ko: "나는 3시에 널 만날 거야.", enPre: "I will meet you ", options: ["in", "on", "at"], enPost: " 3 o'clock.", correct: "at" },
+        { ko: "내 생일은 5월이야.", enPre: "My birthday is ", options: ["in", "on", "at"], enPost: " May.", correct: "in" },
+        { ko: "시험은 월요일이야.", enPre: "The test is ", options: ["in", "on", "at"], enPost: " Monday.", correct: "on" }
     ];
 
     function shuffleArray(array) {
@@ -578,7 +571,7 @@
     }
 
     // ==========================================
-    // 3. 문법 퀴즈 (대명사 빈칸)
+    // 3. 문법 퀴즈 (전치사 / be동사 빈칸)
     // ==========================================
     let currentGramIdx = 0;
     let isGramAnswering = false;
@@ -606,7 +599,8 @@
         const optionsDiv = document.getElementById('gram-options-container');
         optionsDiv.innerHTML = '';
         
-        let options = [...currentQ.options]; // 옵션은 원본대로 유지하거나 필요하면 shuffleArray 사용가능
+        // 옵션 셔플 (필요시)
+        let options = shuffleArray([...currentQ.options]);
 
         options.forEach(opt => {
             const btn = document.createElement('button');
@@ -642,7 +636,7 @@
             clickedBtn.classList.add('wrong');
             blankSpan.classList.add('wrong');
             
-            // 틀리면 잠시 후 버튼 복구, 다시 풀 기회 제공
+            // 틀리면 잠시 후 버튼 복구, 다시 풀 기회 제공 (오답 처리 후 콤보는 리셋됨)
             setTimeout(() => {
                 clickedBtn.classList.remove('wrong');
                 blankSpan.classList.remove('wrong');
@@ -703,7 +697,7 @@
             });
         }
 
-        const gramTitle = document.createElement('div'); gramTitle.className = 'history-category'; gramTitle.innerHTML = '🧩 문법(대명사) 퀴즈 달성도'; historyList.appendChild(gramTitle);
+        const gramTitle = document.createElement('div'); gramTitle.className = 'history-category'; gramTitle.innerHTML = '🧩 문법(전치사) 퀴즈 달성도'; historyList.appendChild(gramTitle);
         const gramDates = Object.keys(gramHistory).sort((a, b) => new Date(b) - new Date(a));
         if(gramDates.length === 0) { historyList.innerHTML += '<p style="color:#A0AEC0; font-size:14px;">분석 기록이 없습니다.</p>'; } 
         else {
